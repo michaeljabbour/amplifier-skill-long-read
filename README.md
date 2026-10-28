@@ -157,7 +157,7 @@ tools:
 
 ```bash
 git clone https://github.com/michaeljabbour/amplifier-skill-long-read
-cd amplifier-module-tool-rlm
+cd amplifier-skill-long-read
 uv sync
 ```
 

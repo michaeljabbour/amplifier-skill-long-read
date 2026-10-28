@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-28 — Canonical clone path
+
+- Make the retained native setup enter the directory created by the canonical public clone.
+
 ## 2026-10-28 — Public site and first-use guide
 
 - Lead with the intended user, concrete benefits, a fictional output preview and a first task.
