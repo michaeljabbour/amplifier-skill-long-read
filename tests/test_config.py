@@ -18,7 +18,6 @@ class TestRLMConfig:
         assert config.exec_timeout == 60
         assert config.default_provider == "anthropic"
         assert config.default_model is None
-        assert config.chars_per_token == 4.0
 
     def test_custom_values(self):
         """Test that custom values are accepted."""
@@ -29,7 +28,6 @@ class TestRLMConfig:
             exec_timeout=120,
             default_provider="openai",
             default_model="gpt-4",
-            chars_per_token=3.5,
         )
 
         assert config.max_recursion_depth == 10
@@ -38,7 +36,6 @@ class TestRLMConfig:
         assert config.exec_timeout == 120
         assert config.default_provider == "openai"
         assert config.default_model == "gpt-4"
-        assert config.chars_per_token == 3.5
 
     def test_from_dict(self):
         """Test creating config from dictionary (as mount() receives)."""
@@ -62,9 +59,9 @@ class TestRLMConfig:
         assert config.max_recursion_depth == 1
         assert config.max_llm_calls == 1
 
-    def test_zero_values_allowed(self):
-        """Test that zero values are allowed (edge case)."""
-        # Zero might be valid for some use cases (disable recursion, etc.)
-        config = RLMConfig(max_recursion_depth=0, max_llm_calls=0)
-        assert config.max_recursion_depth == 0
-        assert config.max_llm_calls == 0
+    def test_zero_values_rejected(self):
+        """Zero call/depth budgets are invalid; no unbounded sentinel is inferred."""
+        import pytest
+        from pydantic import ValidationError
+        with pytest.raises(ValidationError):
+            RLMConfig(max_recursion_depth=0, max_llm_calls=0)

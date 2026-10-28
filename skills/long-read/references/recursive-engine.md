@@ -1,0 +1,3 @@
+# Optional recursive engine
+
+The retained amplifier_module_tool_rlm package supplies RLMTool, RLMConfig and REPLManager. It is separate from the independent extractive helper. It requires a provider and an isolated execution environment through the configured host. Inspect the installed engine before enabling it. Set max_llm_calls, max_recursion_depth, max_trajectory_steps and exec_timeout explicitly; record model/provider identity, observed tokens and a dollar ceiling outside the engine when the provider permits one. The engine can execute generated Python and make billed subcalls; skill installation does neither. No live engine acceptance or efficiency improvement is claimed by the portable helper tests.

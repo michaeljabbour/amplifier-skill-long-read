@@ -1,4 +1,14 @@
-# amplifier-module-tool-rlm
+# Long Read
+
+Answer a bounded question over long material with exact evidence and visible coverage limits.
+
+## Consolidated capability
+
+Portable method: [skills/long-read/SKILL.md](skills/long-read/SKILL.md). Install with `python3 scripts/capability.py install --dest ~/.agents/skills`. See [consolidation and runtime boundaries](docs/CONSOLIDATION.md). The retained source guide below documents the optional original host integration and historical evidence; it is not a new outcome claim.
+
+## Retained source guide
+
+### amplifier-module-tool-rlm
 
 Recursive Language Model (RLM) tool for [Amplifier](https://github.com/microsoft/amplifier) - enables processing of arbitrarily long contexts through recursive decomposition.
 

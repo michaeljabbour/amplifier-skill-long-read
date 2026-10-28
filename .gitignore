@@ -51,3 +51,7 @@ Thumbs.db
 
 # UV
 .uv/
+
+_site/
+
+*.pyc

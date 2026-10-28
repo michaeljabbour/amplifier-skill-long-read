@@ -67,6 +67,7 @@ class TestREPLManagerInitialize:
 
         # Initialize will try direct Docker - shadow_id is set to direct mode ID
         # This test verifies the initialization flow uses direct Docker
+        repl._exec_code = AsyncMock(return_value=(True, "[RLM_INIT_SUCCESS]"))
         result = await repl.initialize("test content", "text")
 
         # If Docker is available, initialization succeeds with direct Docker mode
@@ -89,6 +90,7 @@ class TestREPLManagerInitialize:
         )
 
         # Initialize will fail if Docker isn't available
+        repl._exec_code = AsyncMock(return_value=(False, "[DOCKER_ERROR] fixture unavailable"))
         result = await repl.initialize("test content", "text")
 
         # In unit tests without Docker, initialization fails gracefully
@@ -134,6 +136,7 @@ class TestREPLManagerInitialize:
             config=config,
         )
 
+        repl._exec_code = AsyncMock(return_value=(True, "[RLM_INIT_SUCCESS]"))
         await repl.initialize("test content", "document")
 
         # Should have recorded initialization in trajectory

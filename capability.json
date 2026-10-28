@@ -1,0 +1,80 @@
+{
+  "id": "long-read",
+  "display_name": "Long Read",
+  "kind": "skill",
+  "promise": "Answer a bounded question over long material with exact evidence and visible coverage limits.",
+  "audience": "People and agents examining long documents or collections.",
+  "trigger": "Material exceeds comfortable context and a focused question needs evidence.",
+  "skill_path": "skills/long-read",
+  "modes": [
+    {
+      "name": "Extract",
+      "when": "Exact passages or identifiers are needed.",
+      "output": "Bounded extractive evidence with offsets and line references."
+    },
+    {
+      "name": "Synthesize",
+      "when": "Evidence is sufficient for an answer.",
+      "output": "A source-linked synthesis with unresolved gaps."
+    },
+    {
+      "name": "Resume",
+      "when": "A bounded job stopped before covering the input.",
+      "output": "A verified continuation against the same source hash."
+    }
+  ],
+  "examples": [
+    {
+      "title": "Fictional worked example",
+      "brief": "A fictional task illustrating Long Read.",
+      "before": "An answer summarizes only the beginning of a long report as though the whole was read.",
+      "after": "An explicit chunk budget, source fingerprint and cited excerpts show the inspected coverage.",
+      "why": "Coverage limits remain visible when a job stops or resumes.",
+      "fictional": true
+    }
+  ],
+  "boundaries": [
+    "The independent helper is extractive and lexical; semantic completeness and answer correctness require review."
+  ],
+  "install_commands": [
+    "python3 scripts/capability.py install --dest ~/.agents/skills"
+  ],
+  "runtime_install_commands": [
+    "python3 -m pip install ."
+  ],
+  "verification": [
+    {
+      "name": "Functional acceptance",
+      "command": "python3 scripts/functional_gate.py",
+      "expected": "Supplied fictional tasks exercise actual mechanisms and failure boundaries.",
+      "status": "passed",
+      "evidence": "51 native unit tests passed, 7 live/integration skips; Docker/provider acceptance is separate."
+    },
+    {
+      "name": "Native host acceptance",
+      "command": "See retained source integration guide",
+      "expected": "Actual provider/host/desktop/daemon/runner acceptance for the selected adapter.",
+      "status": "not-run",
+      "evidence": "No live model, real desktop transaction, invitation, deployment or production data migration was performed by this functional baseline."
+    }
+  ],
+  "sources": [
+    {
+      "repo": "amplifier-module-tool-rlm",
+      "commit": "1c35f7f4c79912c25c10302780ecb7fa5531da1b",
+      "paths": [
+        "agents",
+        "modules",
+        "context"
+      ],
+      "license": "MIT",
+      "role": "Primary retained owner history, mechanisms and records; portable method consolidates the listed entry points."
+    }
+  ],
+  "consolidation": [
+    "One portable method entry with mode references; original native engines, agents and records retained as optional adapters."
+  ],
+  "docs": [
+    "docs/CONSOLIDATION.md"
+  ]
+}

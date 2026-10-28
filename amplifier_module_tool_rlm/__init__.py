@@ -226,7 +226,7 @@ if m:
 2. For calculations: YOU must compute the answer, not just find raw numbers
 3. Extract ALL relevant facts before calculating
 4. Use FINAL(answer) to submit - include units (e.g., "$64,400")
-5. The answer EXISTS - keep trying different strategies
+5. The answer may be absent. Stop at the configured budget and report missing evidence instead of inventing an answer
 """
 
 

@@ -1,0 +1,8 @@
+test_bounded_resume_returns_exact_late_evidence (__main__.Gate.test_bounded_resume_returns_exact_late_evidence) ... ok
+test_existing_job_is_preserved (__main__.Gate.test_existing_job_is_preserved) ... ok
+test_source_change_and_result_limit_change_stop_resume (__main__.Gate.test_source_change_and_result_limit_change_stop_resume) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.005s
+
+OK

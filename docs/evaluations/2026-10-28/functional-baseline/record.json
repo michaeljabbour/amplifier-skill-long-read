@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-28",
+  "status": "local-functional-baseline",
+  "source_commit": "1c35f7f4c79912c25c10302780ecb7fa5531da1b",
+  "python": "3.12.5",
+  "fixture_content": "fictional",
+  "model_calls": 0,
+  "notes": "51 native unit tests passed, 7 live/integration skips; Docker/provider acceptance is separate.",
+  "limitations": [
+    "The independent helper is extractive and lexical; semantic completeness and answer correctness require review."
+  ],
+  "files": {
+    "native.log": "841b5720716082a205d064248adff60bf16e9e2dee4dabb5b70881300bf522b7",
+    "functional.log": "85e7d6c827472c44a854436123324389636d3c8a8ef8c60cb31e58109153a422"
+  }
+}
