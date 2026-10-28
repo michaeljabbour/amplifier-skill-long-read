@@ -1,0 +1,45 @@
+{
+  "id": "long-read-resume-evidence-integrity-1",
+  "registered": "2026-10-28",
+  "baseline_commit": "9a4ca6cca99c52b8d87c800e8057cffd421ab01c",
+  "scope": "Only validate retained extractive hits before a resumed job advances; preserve native optional RLM engine and valid job results.",
+  "observed_bug": "Changing a retained hit text to text absent from its source is accepted despite a matching source SHA256.",
+  "fixed_cases": [
+    "tampered-text",
+    "tampered-offset",
+    "tampered-line",
+    "unprocessed-chunk",
+    "tampered-score",
+    "duplicate-hit",
+    "wrong-hit-type",
+    "too-many-hits",
+    "valid-first-advance",
+    "valid-partial-hits",
+    "valid-partial-no-hits",
+    "valid-complete",
+    "valid-unicode-overlap",
+    "valid-empty-source"
+  ],
+  "success": "All 8 malformed retained-evidence cases reject with ValueError before in-memory mutation or disk overwrite; all 6 valid cases retain byte-equivalent normalized outputs versus baseline.",
+  "reject_gates": [
+    "Any valid-case output difference",
+    "Any malformed case accepted, or job mutated on rejection",
+    "Any source write",
+    "Any provider/model call",
+    "Any frozen Data file change",
+    "Failure of existing functional or native unit suite"
+  ],
+  "budget": {
+    "implementation_attempts": 1,
+    "paid_model_calls": 0,
+    "external_service_calls": 0,
+    "max_source_bytes": 8000000
+  },
+  "limitations": [
+    "Author-created deterministic regression cases, not statistically held-out user tasks",
+    "No efficacy, semantic recall, answer quality, speed or savings claim",
+    "User-editable JSON is not cryptographically authenticated; validation only ties retained excerpts to source/chunk/query at read time",
+    "No claim of PDF/OCR support or live RLM/provider acceptance"
+  ],
+  "stop": "Run the same fixed cases once before and after one narrow change; accept only if all gates pass; retain all records. No reroll or broad prompt expansion."
+}

@@ -1,0 +1,117 @@
+{
+  "protocol": "long-read-resume-evidence-integrity-1",
+  "case_file_sha256": "f9f8bdb19a15d2cb0b8f978d7b8e984c822c740212b334f86c042c353b1d6758",
+  "module_sha256": "740b4efdbab4bfb0f71209a23d9f0a0c9fb9d7b99117a8b0b5e1710ed2b4a4d2",
+  "cases": [
+    {
+      "case": "tampered-text",
+      "expected": "reject-before-mutation",
+      "pass": true,
+      "value_error": true,
+      "error_type": "ValueError",
+      "memory_unchanged": true,
+      "disk_unchanged": true
+    },
+    {
+      "case": "tampered-offset",
+      "expected": "reject-before-mutation",
+      "pass": true,
+      "value_error": true,
+      "error_type": "ValueError",
+      "memory_unchanged": true,
+      "disk_unchanged": true
+    },
+    {
+      "case": "tampered-line",
+      "expected": "reject-before-mutation",
+      "pass": true,
+      "value_error": true,
+      "error_type": "ValueError",
+      "memory_unchanged": true,
+      "disk_unchanged": true
+    },
+    {
+      "case": "unprocessed-chunk",
+      "expected": "reject-before-mutation",
+      "pass": true,
+      "value_error": true,
+      "error_type": "ValueError",
+      "memory_unchanged": true,
+      "disk_unchanged": true
+    },
+    {
+      "case": "tampered-score",
+      "expected": "reject-before-mutation",
+      "pass": true,
+      "value_error": true,
+      "error_type": "ValueError",
+      "memory_unchanged": true,
+      "disk_unchanged": true
+    },
+    {
+      "case": "duplicate-hit",
+      "expected": "reject-before-mutation",
+      "pass": true,
+      "value_error": true,
+      "error_type": "ValueError",
+      "memory_unchanged": true,
+      "disk_unchanged": true
+    },
+    {
+      "case": "wrong-hit-type",
+      "expected": "reject-before-mutation",
+      "pass": true,
+      "value_error": true,
+      "error_type": "ValueError",
+      "memory_unchanged": true,
+      "disk_unchanged": true
+    },
+    {
+      "case": "too-many-hits",
+      "expected": "reject-before-mutation",
+      "pass": true,
+      "value_error": true,
+      "error_type": "ValueError",
+      "memory_unchanged": true,
+      "disk_unchanged": true
+    },
+    {
+      "case": "source-preservation",
+      "pass": true
+    },
+    {
+      "case": "valid-first-advance",
+      "pass": true,
+      "output_sha256": "0d3ff69097d32527b78c84674b237a9798c1efe773f319f8dc448540c54405ab"
+    },
+    {
+      "case": "valid-partial-hits",
+      "pass": true,
+      "output_sha256": "39626fb2c83870bea72161ab43c1858e88adc09595c3183c7da61bbcc136d982"
+    },
+    {
+      "case": "valid-partial-no-hits",
+      "pass": true,
+      "output_sha256": "865e9c18ad20ba09ffdb9937208dade8f651828ec363c6777ad40d007eba2629"
+    },
+    {
+      "case": "valid-complete",
+      "pass": true,
+      "output_sha256": "0315857b58d76088bbf48684533ccac8ec729a3e16eafd2b46778c89282a00e1"
+    },
+    {
+      "case": "valid-unicode-overlap",
+      "pass": true,
+      "output_sha256": "b0deb43c94f51abc229dee2067f799a7831f129b17038707714350bd9d12de61"
+    },
+    {
+      "case": "valid-empty-source",
+      "pass": true,
+      "output_sha256": "761981db7367b80f9bd573a2344917dae5851897c792fcea3923d2332e2204c3"
+    }
+  ],
+  "passed": 15,
+  "total": 15,
+  "paid_calls": 0,
+  "network_calls": 0
+}

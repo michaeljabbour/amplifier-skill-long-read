@@ -1,0 +1,19 @@
+{
+  "registered_protocol": "/Users/michaeljabbour/dev/amplifier-capability-consolidation/research/hillclimb-long-read/protocol.json",
+  "baseline_commit": "9a4ca6cca99c52b8d87c800e8057cffd421ab01c",
+  "baseline_cases": "7/15",
+  "candidate_cases": "15/15",
+  "same_cases_sha256": "f9f8bdb19a15d2cb0b8f978d7b8e984c822c740212b334f86c042c353b1d6758",
+  "valid_output_sha256_equal": true,
+  "unit_tests": {
+    "command": "../../.venv-systems/bin/python -m pytest -q",
+    "passed": 51,
+    "skipped": 7,
+    "warnings": 5,
+    "warning_scope": "Existing timeout/mark configuration warnings; no live integration run."
+  },
+  "disposition": "accepted narrow deterministic integrity repair",
+  "effect_claim": "The eight prespecified malformed-evidence cases now reject without mutation; six valid outputs are unchanged. No efficacy/semantic-recall/speed claim.",
+  "paid_calls": 0,
+  "Data_changed": false
+}

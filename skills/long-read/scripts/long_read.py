@@ -49,7 +49,6 @@ def advance(job, budget=100, limit=8):
         raise ValueError('Invalid job format, chunk budget (1..1000), or result limit (1..50)')
     if 'result_limit' in job and job['result_limit'] != limit:
         raise ValueError('Result limit is frozen for a job; create a new job to change it')
-    job['result_limit'] = limit
     data,text = read_source(job['source'])
     if digest(data) != job['source_sha256']:
         raise ValueError('Source changed; create a new job. Old evidence is retained unchanged.')
@@ -57,6 +56,22 @@ def advance(job, budget=100, limit=8):
     if job['total_chunks'] != len(parts) or not isinstance(job['next_chunk'],int) or not 0 <= job['next_chunk'] <= len(parts):
         raise ValueError('Corrupt job cursor')
     terms = set(re.findall(r'\w+',job['query'].casefold()))
+    # A resume file is editable. Recheck retained evidence against the source
+    # before trusting or mutating it, even when the source hash still matches.
+    hits = job.get('hits')
+    if not terms or not isinstance(hits,list) or len(hits) > limit:
+        raise ValueError('Corrupt retained evidence')
+    seen = set()
+    for hit in hits:
+        i = hit.get('chunk') if isinstance(hit,dict) else None
+        if type(i) is not int or not 0 <= i < job['next_chunk'] or i in seen:
+            raise ValueError('Corrupt retained evidence')
+        c = parts[i]
+        score = len(terms & set(re.findall(r'\w+',c['text'].casefold())))
+        if not score or hit != dict(c,chunk=i,score=score):
+            raise ValueError('Retained evidence does not match the source and query')
+        seen.add(i)
+    job['result_limit'] = limit
     end = min(len(parts), job['next_chunk']+budget)
     for i in range(job['next_chunk'],end):
         c = parts[i]

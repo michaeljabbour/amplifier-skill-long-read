@@ -39,5 +39,15 @@ class Gate(unittest.TestCase):
             p=Path(d)/'job.json';m.save(p,{'original':True},exclusive=True)
             with self.assertRaises(FileExistsError):m.save(p,{'original':False},exclusive=True)
             self.assertTrue(json.loads(p.read_text())['original'])
+    def test_resume_rejects_retained_evidence_corruption_before_mutation(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'s.txt';p.write_text('alpha evidence\n'*100)
+            original=m.create_job(p,'alpha',size=200,overlap=10);m.advance(original,1)
+            for field,value in [('text','absent fabricated quote'),('start',999),('score',99),('chunk',5)]:
+                with self.subTest(field=field):
+                    job=copy.deepcopy(original);job['hits'][0][field]=value
+                    prior=copy.deepcopy(job)
+                    with self.assertRaises(ValueError):m.advance(job,1)
+                    self.assertEqual(prior,job)
 
 if __name__=='__main__':unittest.main(verbosity=2)
