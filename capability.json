@@ -25,8 +25,8 @@
   ],
   "examples": [
     {
-      "title": "Fictional worked example",
-      "brief": "A fictional task illustrating Long Read.",
+      "title": "Find an export definition",
+      "brief": "Use Long Read on a fictional long specification to find where an export format is defined. Set an explicit chunk budget, keep exact passages and locations, and report the inspected coverage. If the budget ends, save the job rather than claiming the full document was reviewed.",
       "before": "An answer summarizes only the beginning of a long report as though the whole was read.",
       "after": "An explicit chunk budget, source fingerprint and cited excerpts show the inspected coverage.",
       "why": "Coverage limits remain visible when a job stops or resumes.",
@@ -77,5 +77,58 @@
   "docs": [
     "docs/CONSOLIDATION.md"
   ],
-  "publication_status": "Installation and evidence scopes are documented below."
+  "publication_status": "Installation and evidence scopes are documented below.",
+  "marketing": {
+    "headline": "Read toward a question. Keep the evidence and the gaps.",
+    "lead": "For people examining long documents or collections. Long Read retrieves exact passages for a focused question, records the inspected coverage and resumes against the same source revision, so you can see what an answer rests on.",
+    "benefits": [
+      {
+        "title": "Find a passage you can cite",
+        "body": "Keep character offsets, line references and a source fingerprint with the extracted evidence."
+      },
+      {
+        "title": "Stop without losing your place",
+        "body": "Save a bounded job and resume it only if the source hash still matches."
+      },
+      {
+        "title": "Keep coverage honest",
+        "body": "Show searched chunks and unfinished work instead of presenting the beginning of a document as a full review."
+      }
+    ],
+    "walkthrough": [
+      {
+        "title": "Ask a bounded question",
+        "detail": "Choose the material and what would count as enough evidence to answer."
+      },
+      {
+        "title": "Extract and inspect",
+        "detail": "Run the no-model lexical helper, then read the returned passages and nearby context."
+      },
+      {
+        "title": "Answer or continue",
+        "detail": "Cite the evidence, mark unresolved coverage and resume the saved job when the source is unchanged."
+      }
+    ],
+    "use_when": [
+      "A document exceeds comfortable context and you have a focused question.",
+      "You need exact identifiers, passages or source locations.",
+      "Work must stop and resume with evidence from one stable revision."
+    ],
+    "not_for": [
+      "A guarantee that lexical search understands every relevant meaning.",
+      "Treating no match as proof that the source contains nothing relevant."
+    ],
+    "quickstart_prompt": "Use Long Read on a fictional long specification to find where an export format is defined. Set an explicit chunk budget, keep exact passages and locations, and report the inspected coverage. If the budget ends, save the job rather than claiming the full document was reviewed.",
+    "output_preview": "Question: where is the export format defined?\nSource: specification.txt, fingerprint recorded\nEvidence: exact excerpt with line and character locations\nCoverage: searched chunks / total chunks\nJob: saved for continuation if the budget ends\n\nAnswer: cite the inspected passage.\nUnresolved: terminology outside the lexical query may need another pass.",
+    "example_note": "Fictional evidence receipt. Counts and excerpts are deliberately omitted because no document was scanned for this illustration.",
+    "install_notes": [
+      "Python 3.11 or later is required by the portable install/build helper. The installed method runs through your agent host.",
+      "The portable Python helper works without Docker or a model key and accepts UTF-8 input up to its documented size bound.",
+      "A native recursive engine remains optional and needs its own provider, isolation and explicit budgets.",
+      "Source-hash and saved-hit integrity checks reject changed or inconsistent continuation state."
+    ],
+    "proof_summary": "The extractive helper’s functional checks and adversarial resume-integrity cases passed; valid outputs were preserved. These checks establish bounded extraction behavior, not semantic completeness or answer quality.",
+    "next_step": "Try the helper on one non-sensitive text file and inspect the returned excerpt before synthesizing an answer."
+  },
+  "repository_url": "https://github.com/michaeljabbour/amplifier-skill-long-read"
 }

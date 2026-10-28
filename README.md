@@ -1,10 +1,53 @@
 # Long Read
 
-Answer a bounded question over long material with exact evidence and visible coverage limits.
+Read toward a question. Keep the evidence and the gaps.
 
-## Consolidated capability
+For people examining long documents or collections. Long Read retrieves exact passages for a focused question, records the inspected coverage and resumes against the same source revision, so you can see what an answer rests on.
 
-Portable method: [skills/long-read/SKILL.md](skills/long-read/SKILL.md). Install with `python3 scripts/capability.py install --dest ~/.agents/skills`. See [consolidation and runtime boundaries](docs/CONSOLIDATION.md). The retained source guide below documents the optional original host integration and historical evidence; it is not a new outcome claim.
+[Explore the site](https://michaeljabbour.github.io/amplifier-skill-long-read/)
+
+## What you get
+
+- **Find a passage you can cite.** Keep character offsets, line references and a source fingerprint with the extracted evidence.
+- **Stop without losing your place.** Save a bounded job and resume it only if the source hash still matches.
+- **Keep coverage honest.** Show searched chunks and unfinished work instead of presenting the beginning of a document as a full review.
+
+## Start here
+
+```sh
+git clone https://github.com/michaeljabbour/amplifier-skill-long-read.git
+cd amplifier-skill-long-read
+python3 scripts/capability.py install --dest ~/.agents/skills
+```
+
+This installs the portable method and its packaged references into your agent skill folder. If your host uses another folder, pass that path to `--dest`. Start a new session or use your host’s skill refresh so it can discover the installed skill. Optional native tools are installed separately.
+
+Try this first task:
+
+> Use Long Read on a fictional long specification to find where an export format is defined. Set an explicit chunk budget, keep exact passages and locations, and report the inspected coverage. If the budget ends, save the job rather than claiming the full document was reviewed.
+
+## What you need
+
+- Python 3.11 or later for the portable install helper.
+- The portable Python helper works without Docker or a model key and accepts UTF-8 input up to its documented size bound.
+- A native recursive engine remains optional and needs its own provider, isolation and explicit budgets.
+- Source-hash and saved-hit integrity checks reject changed or inconsistent continuation state.
+
+For the optional native interface, use a project virtual environment:
+
+```sh
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install .
+```
+
+## Evidence and limits
+
+The extractive helper’s functional checks and adversarial resume-integrity cases passed; valid outputs were preserved. These checks establish bounded extraction behavior, not semantic completeness or answer quality.
+
+The worked examples on the site are fictional. They illustrate the output and decisions; they are not user results or measured benefit. See [consolidation and runtime boundaries](docs/CONSOLIDATION.md) for retained interfaces and acceptance scope.
+
+---
 
 ## Retained source guide
 
@@ -107,13 +150,13 @@ Add to your bundle's `behaviors/` YAML:
 ```yaml
 tools:
   - module: tool-rlm
-    source: git+https://github.com/michaeljabbour/amplifier-module-tool-rlm@main
+    source: git+https://github.com/michaeljabbour/amplifier-skill-long-read@main
 ```
 
 ### For Development
 
 ```bash
-git clone https://github.com/michaeljabbour/amplifier-module-tool-rlm
+git clone https://github.com/michaeljabbour/amplifier-skill-long-read
 cd amplifier-module-tool-rlm
 uv sync
 ```
