@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-28 — Film
+
+- Add a 66-second film to the site, with captions, a transcript, a poster and a 15-second cut. The example in it is fictional, and it reports no results.
+
 ## 2026-10-28 — Canonical clone path
 
 - Make the retained native setup enter the directory created by the canonical public clone.

@@ -2,6 +2,8 @@
 
 Read toward a question. Keep the evidence and the gaps.
 
+Watch the [66-second film](https://michaeljabbour.github.io/amplifier-skill-long-read/#film): a nine-hundred-page document, one question, and an answer that comes with the passage, the page and what was left unread. The example in it is fictional.
+
 For people examining long documents or collections. Long Read retrieves exact passages for a focused question, records the inspected coverage and resumes against the same source revision, so you can see what an answer rests on.
 
 [Explore the site](https://michaeljabbour.github.io/amplifier-skill-long-read/)

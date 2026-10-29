@@ -130,5 +130,12 @@
     "proof_summary": "The extractive helper’s functional checks and adversarial resume-integrity cases passed; valid outputs were preserved. These checks establish bounded extraction behavior, not semantic completeness or answer quality.",
     "next_step": "Try the helper on one non-sensitive text file and inspect the returned excerpt before synthesizing an answer."
   },
-  "repository_url": "https://github.com/michaeljabbour/amplifier-skill-long-read"
+  "repository_url": "https://github.com/michaeljabbour/amplifier-skill-long-read",
+  "film": {
+    "file": "long-read-film",
+    "seconds": 66,
+    "heading": "Nine hundred pages. One question.",
+    "blurb": "In 66 seconds, a fast answer reads forty pages and misses page 612. Long Read reads toward your question inside a budget you set, shows what it read and what it skipped, answers with the passage, page and line, marks its place when the budget runs out and notices a new edition. Captions are on the player; a transcript is below.",
+    "note": "The specification, pages and fingerprints are a fictional example. The film shows how the skill behaves; it does not report results."
+  }
 }
