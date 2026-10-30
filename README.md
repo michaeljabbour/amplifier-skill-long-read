@@ -362,3 +362,7 @@ export RLM_DEBUG_LOG=/tmp/rlm_debug.log
 amplifier
 # After session, check: cat /tmp/rlm_debug.log
 ```
+
+## Repository migration
+
+This repository was renamed from `amplifier-skill-long-read` to `amplifier-capability-long-read`. Existing installed method names, bundle aliases and native interfaces stay the same. See the [migration guide](https://michaeljabbour.github.io/migration/) and [repository map](https://michaeljabbour.github.io/migration/mapping.json) for source URL updates.
